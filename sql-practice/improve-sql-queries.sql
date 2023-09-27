@@ -1,9 +1,13 @@
 ----------
--- Step 0 - Create a Query 
+-- Step 0 - Create a Query
 ----------
 -- Query: Select all cats that have a toy with an id of 5
 
-    -- Your code here
+EXPLAIN QUERY PLAN
+SELECT * FROM cats
+INNER JOIN cat_toys ON cats.id = cat_toys.cat_id
+INNER JOIN toys ON toys.id = cat_toys.toy_id
+WHERE toys.id = 5;
 
 -- Paste your results below (as a comment):
 
@@ -48,7 +52,7 @@
 
 -- Create index:
 
-    -- Your code here
+    CREATE INDEX cat_toys_index_toy_id ON cat_toys(toy_id);-- Your code here
 
 -- Analyze Query:
     -- Your code here
